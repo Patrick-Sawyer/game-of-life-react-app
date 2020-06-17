@@ -11,6 +11,7 @@ function App() {
       <p>Please click on some squares and press start.</p>
       <br></br>
       <Game />
+      <br></br>
     </div>
   );
 }

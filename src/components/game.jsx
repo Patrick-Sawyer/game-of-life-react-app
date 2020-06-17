@@ -18,7 +18,6 @@ class Game extends Component {
 
   updateGrid = (rowIndex, cellIndex, value) => {
     this.setState(state =>({
-        ...state,
         grid : state.grid.map((arr, i) => arr.map((item,j) =>{
           if(i == rowIndex && j == cellIndex){
             return value
@@ -27,6 +26,29 @@ class Game extends Component {
           }
         }))
     }))
+  }
+
+  tick = () => {
+    for(let i = 0; i < 50; i++){
+      for(let j = 0; j < 50; j++){}
+    }
+  }
+
+  neighbours = (r, c) => {
+    let array = [
+      [r - 1, c - 1], 
+      [r - 1, c],
+      [r - 1, c + 1],
+      [r, c - 1],
+      [r, c + 1],
+      [r + 1, c - 1],
+      [r + 1, c],
+      [r + 1, c + 1]
+    ]
+
+    return array.filter(function(x){
+      return (0 <= x[0] && x[0] <= 49 && 0 <= x[1] && x[1] <= 49)
+    })
   }
 
   render() {

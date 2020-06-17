@@ -26,7 +26,6 @@ class Cell extends Component {
   handleClick = () => {
     if (this.state.gamePlaying == false) {
       this.props.updateGrid(this.state.rowNumber, this.state.cellNumber, true);
-
     }
   };
 
