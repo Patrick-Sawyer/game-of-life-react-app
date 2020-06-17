@@ -29,26 +29,51 @@ class Game extends Component {
   }
 
   tick = () => {
-    for(let i = 0; i < 50; i++){
-      for(let j = 0; j < 50; j++){}
+
+    let currentState = this.state.grid;
+
+    for(let rowIndex = 0; rowIndex < 50; rowIndex++){
+      for(let cellIndex = 0; cellIndex < 50; cellIndex++){
+        let neighbours = this.numberOfLiveNeighbours(rowIndex, cellIndex)
+        if(currentState[rowIndex][cellIndex] == true){
+          if(neighbours < 2){
+            currentState[rowIndex][cellIndex] = false
+          }
+          if(neighbours > 3){
+            currentState[rowIndex][cellIndex] = false
+          }
+        }else{
+          if(neighbours == 3){
+            currentState[rowIndex][cellIndex] = true
+          }
+        }
+      }
     }
+
+    this.setState({
+      grid: currentState
+    })
   }
 
-  neighbours = (r, c) => {
+  numberOfLiveNeighbours = (rowIndex, cellIndex) => {
     let array = [
-      [r - 1, c - 1], 
-      [r - 1, c],
-      [r - 1, c + 1],
-      [r, c - 1],
-      [r, c + 1],
-      [r + 1, c - 1],
-      [r + 1, c],
-      [r + 1, c + 1]
-    ]
+      [rowIndex - 1, cellIndex - 1], 
+      [rowIndex - 1, cellIndex],
+      [rowIndex - 1, cellIndex + 1],
+      [rowIndex, cellIndex - 1],
+      [rowIndex, cellIndex + 1],
+      [rowIndex + 1, cellIndex - 1],
+      [rowIndex + 1, cellIndex],
+      [rowIndex + 1, cellIndex + 1]
+    ];
 
     return array.filter(function(x){
       return (0 <= x[0] && x[0] <= 49 && 0 <= x[1] && x[1] <= 49)
-    })
+    }).map(neighbour => {
+        return this.state.grid[neighbour[0]][neighbour[1]]
+    }).filter(function(x){
+      return (x == true)
+    }).length;
   }
 
   render() {
