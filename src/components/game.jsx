@@ -15,7 +15,26 @@ class Game extends Component {
   state = {
     grid: initialState,
     gamePlaying: false,
+    interval: null
   };
+
+  randomize = () => {
+    let randomGrid = []
+    for(let i = 0; i < 50; i++){
+      let randomRow = []
+      for(let j = 0; j < 50; j++){
+        if(Math.random() < 0.5){
+          randomRow.push(true) 
+        } else {
+          randomRow.push(false)
+        }  
+      }
+      randomGrid.push(randomRow)
+    }
+   this.setState({
+    grid: randomGrid
+   })
+  }
 
   updateGrid = (rowIndex, cellIndex, value) => {
     this.setState(state =>({
@@ -27,6 +46,15 @@ class Game extends Component {
           }
         }))
     }))
+  }
+
+  clear = () => {
+    let newState = initialState.map(function(arr) {
+      return arr.slice();
+    });
+    this.setState({
+    grid: newState
+   })
   }
 
   numberOfLiveNeighbours = (r, c) => {
@@ -74,11 +102,25 @@ class Game extends Component {
     })
   }
 
-  play = (bool) => {
+  playOrPause = () => {
+    if(this.state.gamePlaying){
+      return 'STOP'
+    }else{
+      return 'PLAY'
+    }
+  }
+
+  play = () => {
+    if(this.state.gamePlaying == false){
+      this.setState({
+        interval: setInterval(() => this.tick(), 100)
+      })
+    }else{
+      clearInterval(this.state.interval)
+    }
     this.setState({
-      gamePlaying: bool
+      gamePlaying: !this.state.gamePlaying
     })
-    setInterval(() => this.tick(), 100)
   }
 
   render() {
@@ -97,8 +139,17 @@ class Game extends Component {
     return (
 
     <div>
+      <header className="header">
+        <h1>GAME OF LIFE</h1>
+        <p>Press randomize and then play to get started.</p>
+        <p>Click near stuck cells to get the moving again</p>
+        <br></br>
+      </header>
       <div className={styles.game}>{elements}</div>
-      <button onClick={this.play}>PLAY</button>
+      <br></br>
+      <button className={styles.button} onClick={this.play}>{this.playOrPause()}</button>
+      <button className={styles.button} onClick={this.randomize}>RANDOMIZE</button>
+      <button className={styles.button} onClick={this.clear}>CLEAR</button>
     </div>)
   }
 }
