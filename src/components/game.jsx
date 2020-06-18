@@ -139,13 +139,6 @@ class Game extends Component {
     return (
 
     <div>
-      <header className="header">
-        <br></br>
-        <h1>GAME OF LIFE</h1>
-        <p>Press randomize and then play to get started.</p>
-        <p>Click near stuck cells to get the moving again</p>
-        <br></br>
-      </header>
       <div className={styles.game}>{elements}</div>
       <br></br>
       <button className={styles.button} onClick={this.play}>{this.playOrPause()}</button>
