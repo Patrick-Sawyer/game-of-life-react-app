@@ -140,6 +140,7 @@ class Game extends Component {
 
     <div>
       <header className="header">
+        <br></br>
         <h1>GAME OF LIFE</h1>
         <p>Press randomize and then play to get started.</p>
         <p>Click near stuck cells to get the moving again</p>

@@ -1,12 +1,11 @@
 body{
-  background: #c9c9c9;
   color: #404040;
   font-family: 'Montserrat', sans-serif; font-weight:400;
 
 }
 
-header{
-
+h1 {
+  letter-spacing: 1px;
 }
 
 .game {
