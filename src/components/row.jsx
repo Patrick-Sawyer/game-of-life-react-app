@@ -5,19 +5,12 @@ import styles from "../css/master.module.css";
 class Row extends Component {
   state = {
     rowData: this.props.rowData,
-    gamePlaying: this.props.gamePlaying,
   };
 
   static getDerivedStateFromProps(props, state) {
     if (props.rowData !== state.rowData) {
       return {
         rowData: props.rowData,
-
-      };
-    }
-    if (props.gamePlaying !== state.gamePlaying) {
-      return {
-        gamePlaying: props.gamePlaying,
       };
     }
 
@@ -34,7 +27,6 @@ class Row extends Component {
           cellNumber={i}
           cellState={this.state.rowData[i]}
           updateGrid={this.props.updateGrid}
-          gamePlaying={this.state.gamePlaying}
         />
       );
     }

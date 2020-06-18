@@ -1,5 +1,6 @@
 {
   "name": "game-of-life",
+  "homepage":"http://www.disco-computer.com/game-of-life",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

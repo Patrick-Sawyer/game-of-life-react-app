@@ -2,6 +2,8 @@
 
 This app is based on [Conway's game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
+Deployed [here](http://www.disco-computer.com/game-of-life)
+
 ### Setup
 
 Fork this repo, then run the following commands from the root folder.
