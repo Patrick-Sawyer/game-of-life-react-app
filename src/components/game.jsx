@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Row from "./row.jsx";
 import styles from "../css/master.module.css";
-import update from "react-addons-update";
 
 let initialState = [];
 

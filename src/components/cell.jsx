@@ -26,7 +26,7 @@ class Cell extends Component {
   };
 
   getCell = () => {
-    if (this.state.cellState == true) {
+    if (this.state.cellState === true) {
       return <div className={styles.live} onClick={this.handleClick}></div>;
     } else {
       return <div className={styles.dead} onClick={this.handleClick}></div>;
