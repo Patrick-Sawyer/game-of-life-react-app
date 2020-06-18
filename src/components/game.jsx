@@ -23,7 +23,7 @@ class Game extends Component {
     for(let i = 0; i < 50; i++){
       let randomRow = []
       for(let j = 0; j < 50; j++){
-        if(Math.random() < 0.5){
+        if(Math.random() < 0.3){
           randomRow.push(true) 
         } else {
           randomRow.push(false)
