@@ -30,7 +30,11 @@ class Row extends Component {
         />
       );
     }
-    return <div className={styles.row}>{elements}</div>;
+    return (
+      <div data-testid="row" className={styles.row}>
+        {elements}
+      </div>
+    );
   }
 }
 

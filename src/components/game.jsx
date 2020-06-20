@@ -131,6 +131,7 @@ class Game extends Component {
     for (let i = 0; i < 50; i++) {
       elements.push(
         <Row
+          data-testid="row"
           key={i}
           rowNumber={i}
           rowData={this.state.grid[i]}
@@ -139,7 +140,7 @@ class Game extends Component {
       );
     }
     return (
-      <div>
+      <div data-testid="game">
         <div className={styles.game}>{elements}</div>
         <br></br>
         <div className={styles.buttons}>
