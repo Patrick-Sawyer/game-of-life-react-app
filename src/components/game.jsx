@@ -142,15 +142,21 @@ class Game extends Component {
       <div>
         <div className={styles.game}>{elements}</div>
         <br></br>
-        <button className={styles.button} onClick={this.play}>
-          {this.playOrPause()}
-        </button>
-        <button className={styles.button} onClick={this.randomize}>
-          RANDOMIZE
-        </button>
-        <button className={styles.button} onClick={this.clear}>
-          CLEAR
-        </button>
+        <div className={styles.buttons}>
+          <button className={styles.button} onClick={this.play}>
+            {this.playOrPause()}
+          </button>
+          <br className="break"></br>
+          <br className="break"></br>
+          <button className={styles.button} onClick={this.randomize}>
+            RANDOMIZE
+          </button>
+          <br className="break"></br>
+          <br className="break"></br>
+          <button className={styles.button} onClick={this.clear}>
+            CLEAR
+          </button>
+        </div>
       </div>
     );
   }
