@@ -17,6 +17,8 @@ I have tested this project using Jest and Enzyme. To run tests, run the followin
 
 `npm test`
 
-# Approach
+You may need to hit `a` to get the tests to run.
+
+### Approach
 
 For this project I opted to use react, as I wanted to get a visual representation of the data, as well as get some practice using react. I split it into cell components, row components and a game component. Each cell's state is stored in a master 'grid' in the game's state, and filtered down to the cell components. All the logic is in the game component.
