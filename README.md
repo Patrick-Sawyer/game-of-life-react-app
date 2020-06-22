@@ -28,7 +28,7 @@ To run feature tests run the following.
 
 `npx cypress open`
 
-Then click on 'Run all specs'
+Then click on 'Run all specs'.
 
 ### Approach
 
