@@ -22,6 +22,32 @@ it("contains 50 row divs", () => {
   }
 });
 
+describe("randomize", () => {
+  it("fills grid with false when random set to 0.5", () => {
+    let testRow = new Array(50).fill(false);
+    let testGrid = new Array(50).fill(testRow);
+    const mockMath = Object.create(global.Math);
+    mockMath.random = () => 0.5;
+    global.Math = mockMath;
+    const wrapper = shallow(<Game />);
+    const instance = wrapper.instance();
+    instance.randomize();
+    expect(wrapper.state("grid")).toEqual(testGrid);
+  });
+
+  it("fills grid with true when random set to 0.2", () => {
+    let testRow = new Array(50).fill(true);
+    let testGrid = new Array(50).fill(testRow);
+    const mockMath = Object.create(global.Math);
+    mockMath.random = () => 0.2;
+    global.Math = mockMath;
+    const wrapper = shallow(<Game />);
+    const instance = wrapper.instance();
+    instance.randomize();
+    expect(wrapper.state("grid")).toEqual(testGrid);
+  });
+});
+
 describe("updateGrid", () => {
   it("updates grid", () => {
     const wrapper = shallow(<Game />);
