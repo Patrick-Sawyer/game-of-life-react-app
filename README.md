@@ -25,6 +25,7 @@ I have unit tested this project using Jest and Enzyme, and used Cypress to featu
 To run feature tests run the following.
 
 `npm start`
+
 `npx cypress open`
 
 Then click on 'Run all specs'
