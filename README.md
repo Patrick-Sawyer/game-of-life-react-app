@@ -9,15 +9,25 @@ Deployed [here](http://www.disco-computer.com/game-of-life).
 Fork this repo, then run the following commands from the root folder.
 
 `npm install`
+
+### Running App
+
+Type in the following command.
+
 `npm start`
 
 ### Tests
 
-I have tested this project using Jest and Enzyme. To run tests, run the following command.
+I have unit tested this project using Jest and Enzyme, and used Cypress to feature test. To run unit tests, run the following command.
 
 `npm test`
 
-You may need to hit `a` to get the tests to run.
+To run feature tests run the following.
+
+`npm start`
+`npx cypress open`
+
+Then click on 'Run all specs'
 
 ### Approach
 

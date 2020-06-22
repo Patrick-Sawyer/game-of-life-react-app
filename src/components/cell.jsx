@@ -30,6 +30,7 @@ class Cell extends Component {
       return (
         <div
           className={styles.live}
+          data-cy={"r" + this.state.rowNumber + "c" + this.state.cellNumber}
           data-testid="cell"
           onClick={this.handleClick}
         ></div>
@@ -38,6 +39,7 @@ class Cell extends Component {
       return (
         <div
           className={styles.dead}
+          data-cy={"r" + this.state.rowNumber + "c" + this.state.cellNumber}
           data-testid="cell"
           onClick={this.handleClick}
         ></div>

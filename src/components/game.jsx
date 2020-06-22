@@ -2,13 +2,8 @@ import React, { Component } from "react";
 import Row from "./row.jsx";
 import styles from "../css/master.module.css";
 
-let initialState = [];
-
 const row = new Array(50).fill(false);
-
-for (let i = 0; i < 50; i++) {
-  initialState.push(row);
-}
+const initialState = new Array(50).fill(row);
 
 class Game extends Component {
   state = {
@@ -39,7 +34,7 @@ class Game extends Component {
     this.setState((state) => ({
       grid: state.grid.map((arr, i) =>
         arr.map((item, j) => {
-          if (i == rowIndex && j == cellIndex) {
+          if (i === rowIndex && j === cellIndex) {
             return value;
           } else {
             return item;
@@ -50,11 +45,8 @@ class Game extends Component {
   };
 
   clear = () => {
-    let newState = initialState.map(function (arr) {
-      return arr.slice();
-    });
     this.setState({
-      grid: newState,
+      grid: initialState,
     });
   };
 
@@ -78,7 +70,7 @@ class Game extends Component {
         return this.state.grid[neighbour[0]][neighbour[1]];
       })
       .filter(function (x) {
-        return x == true;
+        return x === true;
       }).length;
   };
 
@@ -90,11 +82,11 @@ class Game extends Component {
     for (let i = 0; i < 50; i++) {
       for (let j = 0; j < 50; j++) {
         let neighbours = this.numberOfLiveNeighbours(i, j);
-        if (this.state.grid[i][j] == true) {
-          if (neighbours == 2 || neighbours == 3) {
+        if (this.state.grid[i][j] === true) {
+          if (neighbours === 2 || neighbours === 3) {
             newState[i][j] = true;
           }
-        } else if (neighbours == 3) {
+        } else if (neighbours === 3) {
           newState[i][j] = true;
         }
       }
@@ -114,7 +106,7 @@ class Game extends Component {
   };
 
   play = () => {
-    if (this.state.gamePlaying == false) {
+    if (this.state.gamePlaying === false) {
       this.setState({
         interval: setInterval(() => this.tick(), 100),
       });
@@ -140,23 +132,36 @@ class Game extends Component {
       );
     }
     return (
-      <div data-testid="game">
+      <div data-testid="game" data-cy="game">
         <div className={styles.game}>{elements}</div>
         <br></br>
         <div className={styles.buttons}>
-          <button className={styles.button} onClick={this.play}>
+          <button
+            data-cy="playOrPause"
+            className={styles.button}
+            onClick={this.play}
+          >
             {this.playOrPause()}
           </button>
           <br className="break"></br>
           <br className="break"></br>
-          <button className={styles.button} onClick={this.randomize}>
+          <button
+            data-cy="randomize"
+            className={styles.button}
+            onClick={this.randomize}
+          >
             RANDOMIZE
           </button>
           <br className="break"></br>
           <br className="break"></br>
-          <button className={styles.button} onClick={this.clear}>
+          <button
+            data-cy="clear"
+            className={styles.button}
+            onClick={this.clear}
+          >
             CLEAR
           </button>
+          <br></br>
         </div>
       </div>
     );

@@ -6,6 +6,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.1.2",
+    "cypress": "^4.8.0",
     "enzyme-adapter-react-15": "^1.4.1",
     "react": "^16.13.1",
     "react-addons-update": "^15.6.2",
