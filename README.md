@@ -32,6 +32,12 @@ Once that has loaded, open another terminal and run the following.
 
 Then click on 'Run all specs'.
 
+# File locations
+
+Components are in `./src/components`.
+Unit tests (Jest/Enzyme) are in `./src/__test__`.
+Feature tests (Cypress) are in `./cypress/integration`
+
 ### Approach
 
 For this project I opted to use react, as I wanted to get a visual representation of the data, as well as get some practice using react. I split it into cell components, row components and a game component. Each cell's state is stored in a master 'grid' in the game's state, and filtered down to the cell components. All the logic is in the game component.
