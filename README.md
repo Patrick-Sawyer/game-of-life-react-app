@@ -34,8 +34,10 @@ Then click on 'Run all specs'.
 
 # File locations
 
-Components are in `./src/components`.
+React components are in `./src/components`.
+
 Unit tests (Jest/Enzyme) are in `./src/__test__`.
+
 Feature tests (Cypress) are in `./cypress/integration`
 
 ### Approach
