@@ -18,7 +18,7 @@ Type in the following command.
 
 ### Tests
 
-I have unit tested this project using Jest and Enzyme, and used Cypress to feature test. To run unit tests, run the following command.
+I have unit tested this project using Jest and Enzyme, and used Cypress to feature test. To run unit tests, run the following command (you may need to hit 'a' to run all tests after the command).
 
 `npm test`
 
