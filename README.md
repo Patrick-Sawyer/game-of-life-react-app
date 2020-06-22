@@ -22,7 +22,7 @@ I have unit tested this project using Jest and Enzyme, and used Cypress to featu
 
 `npm test`
 
-To run feature tests run the following.
+To run feature tests run the following commands in two separate Terminals.
 
 `npm start`
 
